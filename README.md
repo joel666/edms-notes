@@ -1,2 +1,2 @@
-# edms-notes
-Notes of EDMS
+# EDMS Notes
+
