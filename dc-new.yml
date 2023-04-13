@@ -124,18 +124,18 @@ services:
     restart: unless-stopped
 
   keycloak-postgres:
-    image: postgres:13.2
-    restart: unless-stopped
+    - image: postgres:13.2
+    - restart: unless-stopped
     environment:
       POSTGRES_DB: ${MAYAN_KEYCLOAK_DATABASE_NAME:-keycloak}
       POSTGRES_PASSWORD: ${MAYAN_KEYCLOAK_DATABASE_PASSWORD:-keycloakdbpass}
       POSTGRES_USER: ${MAYAN_DATABASE_KEYCLOAK_USER:-keycloak}
-    image: postgres:${MAYAN_DOCKER_KEYCLOAK_POSTGRES_TAG:-13.8-alpine}
+    - image: postgres:${MAYAN_DOCKER_KEYCLOAK_POSTGRES_TAG:-13.8-alpine}
     networks:
       - keycloak
     profiles:
       - keycloak_postgresql
-    restart: unless-stopped
+    - restart: unless-stopped
     volumes:
       - ${MAYAN_KEYCLOAK_POSTGRES_VOLUME:-keycloak-postgres}:/var/lib/postgresql/data
 
